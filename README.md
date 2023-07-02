@@ -1,24 +1,28 @@
 # vue_cognito
 
+node v18.16.1
+
 ## Project setup
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Start App
+
 ```
-npm run serve
+npm start
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+http://localhost:8081
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Env
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+cognito "vuecognito290f994e_userpool_290f994e-dev"から以下環境変数を設定
+
+```
+touch .env.local
+
+VUE_APP_COGNITO_POOL_ID="プールID"
+VUE_APP_COGNITO_CLIENT_ID="クライアントID"
+```
