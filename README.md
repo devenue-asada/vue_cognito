@@ -1,4 +1,4 @@
-# vue_cognito
+# Login sample (Vue + Cognito)
 
 node v18.16.1
 

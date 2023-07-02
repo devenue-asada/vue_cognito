@@ -22,12 +22,10 @@
 
 <script>
 
-  //ライブラリのインポート
   import {
     CognitoUserPool,
     CognitoUser,
     AuthenticationDetails
-
   } from 'amazon-cognito-identity-js'
 
 
@@ -39,17 +37,14 @@
         password: ''
       }
     },
-
     methods: {
       login() {
-        //cognito設定
         let poolData = {
           UserPoolId: process.env.VUE_APP_COGNITO_POOL_ID,
           ClientId: process.env.VUE_APP_COGNITO_CLIENT_ID
         };
-        console.log("poolData")
+
         let userPool = new CognitoUserPool(poolData);
-        //cognitoパラメータ設定
         let username = this.username;
         let password = this.password;
 
@@ -69,17 +64,16 @@
 
         let cognitoUser = new CognitoUser(userData);
 
-        //ログイン処理
+        //Cognitoログイン処理
         cognitoUser.authenticateUser(authenticationDetails, {
-          onSuccess: function() {
-            console.log("認証成功ーーーーーーーーーーーーー")
-            console.log(result)
-            let result="遷移先のURL";
+          onSuccess: () => {
+            let result="/";
             location.assign(result);
           },
-          onFailure: function(err) {
+          onFailure: (err)=> {
             alert(err.message || JSON.stringify(err));
           },
+        //   newPasswordRequired: ()=>('Password1', attributesData, this)
         });
       }
     }
