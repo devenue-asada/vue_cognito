@@ -25,4 +25,5 @@ touch .env.local
 
 VUE_APP_COGNITO_POOL_ID="プールID"
 VUE_APP_COGNITO_CLIENT_ID="クライアントID"
+VUE_APP_FIRST_LOGIN_EMAIL="初回パスワード変更用メール"（仮実装にて本来は不要）
 ```

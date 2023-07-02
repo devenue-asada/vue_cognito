@@ -67,13 +67,28 @@
         //Cognitoログイン処理
         cognitoUser.authenticateUser(authenticationDetails, {
           onSuccess: () => {
-            let result="/";
-            location.assign(result);
+            //２回目以降に通過
+            alert("ログイン成功");
+            // let result="/";
+            // location.assign(result);
           },
           onFailure: (err)=> {
             alert(err.message || JSON.stringify(err));
           },
-        //   newPasswordRequired: ()=>('Password1', attributesData, this)
+        newPasswordRequired: function (userAttributes, requireAttributes) {
+            //初回に通過。パスワード変更を行う
+            alert("ログイン成功！");
+            //TODO：以下パスワード変更は未実装
+            console.log(userAttributes);
+            console.log(requireAttributes);
+            console.log(process.env.VUE_APP_FIRST_LOGIN_EMAIL);
+            // let attributesData = {
+            //     name: process.env.VUE_APP_FIRST_LOGIN_EMAIL //TODO：メールアドレスはDBから取得する必要がある
+            // }
+            // //パスワード変更機能実装時に、以下の再パスワードを変数
+            // let newPassword = 'Password1'
+            // cognitoUser.completeNewPasswordChallenge(newPassword, attributesData, this)
+            }
         });
       }
     }
